@@ -44,6 +44,22 @@ android {
     }
 }
 
+publishing {
+    repositories {
+        maven {
+            name = "gpr"
+            url = uri("https://maven.pkg.github.com/jg-hot/BottomSheetNavigator3")
+            credentials {
+                username = properties["gpr.user"].toString()
+                password = properties["gpr.key"].toString()
+            }
+        }
+    }
+}
+mavenPublishing {
+    coordinates("io.github.jg-hot", "material3-navigation", "0.0.12-test")
+}
+
 dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
